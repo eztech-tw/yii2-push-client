@@ -1,0 +1,21 @@
+{
+    "name": "eztech-tw/yii2-push-client",
+    "description": "EzTech PHP Push Helper",
+    "type": "library",
+    "keywords": ["EzTech","yii2","extension"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "scott1984",
+            "email": "scott1984@gmail.com"
+        }
+    ],
+    "require": {
+        "eztech-tw/php-push-client": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "scott1984\\ezpush\\": ""
+        }
+    }
+}
