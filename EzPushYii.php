@@ -34,10 +34,14 @@ class EzPushYii extends \yii\base\Component
      * @param Message $_message
      * @return array 回傳陣列物件，或失敗為null
      */
-    public function Push($_message,$_subscriber){
-        EzPush::$ServerAddress=$this->ServerAddress;
-        EzPush::$ApiAccessKey=$this->ApiAccessKey;
-        return EzPush::Push($_message,$_subscriber,$this->Bundleid);
+    public function Push($_message, $_subscriber, $_bundleid = null)
+    {
+        EzPush::$ServerAddress = $this->ServerAddress;
+        EzPush::$ApiAccessKey = $this->ApiAccessKey;
+        if (isset($_bundleid)) {
+            return EzPush::Push($_message, $_subscriber, $_bundleid);
+        }
+        return EzPush::Push($_message, $_subscriber, $this->Bundleid);
     }
 
     /**
@@ -45,9 +49,10 @@ class EzPushYii extends \yii\base\Component
      * ["Bundleid"=>"說明"]
      * @return array
      */
-    public function BundleidList(){
-        EzPush::$ServerAddress=$this->ServerAddress;
-        EzPush::$ApiAccessKey=$this->ApiAccessKey;
+    public function BundleidList()
+    {
+        EzPush::$ServerAddress = $this->ServerAddress;
+        EzPush::$ApiAccessKey = $this->ApiAccessKey;
         return EzPush::BundleidList();
     }
 }
