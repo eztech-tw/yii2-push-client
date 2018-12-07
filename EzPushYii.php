@@ -55,4 +55,30 @@ class EzPushYii extends \yii\base\Component
         EzPush::$ApiAccessKey = $this->ApiAccessKey;
         return EzPush::BundleidList();
     }
+
+    /**
+     * 上傳使用者Token
+     * @param string $_bundleid
+     * @param string $_subscriber
+     * @param string $_token
+     * @param string $_platform
+     * @return array 回傳陣列物件，或失敗為null
+     */
+    public function addClientToken($_token,$_subscriber,$_bundleid,$_platform){
+        EzPush::$ServerAddress = $this->ServerAddress;
+        EzPush::$ApiAccessKey = $this->ApiAccessKey;
+        return EzPush::addClientToken($_token,$_subscriber,$_bundleid,$_platform);
+    }
+
+    /**
+     * 全部標示已讀
+     * @param string $_bundleid
+     * @param string $_subscriber
+     * @return array 回傳陣列物件，或失敗為null
+     */
+    public function markAllAsRead($_subscriber,$_bundleid){
+        EzPush::$ServerAddress = $this->ServerAddress;
+        EzPush::$ApiAccessKey = $this->ApiAccessKey;
+        return EzPush::markAllAsRead($_subscriber,$_bundleid);
+    }
 }
